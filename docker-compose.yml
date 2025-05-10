@@ -1,8 +1,8 @@
 services:
   securdi-code:
     image: debian:latest
-    container_name: securdi-code
-    hostname: securdi-code
+    container_name: robotboy-code
+    hostname: robotboy-code
     tty: true
     stdin_open: true
     volumes:
