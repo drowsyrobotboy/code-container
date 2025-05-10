@@ -1,0 +1,25 @@
+services:
+  securdi-code:
+    image: debian:latest
+    container_name: securdi-code
+    hostname: securdi-code
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./opt:/opt
+      - ./root:/root
+    working_dir: /opt
+    environment:
+      - PASSWORD=devpass
+    ports:
+      - "8080:8080"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: [
+      "code-server",
+      "--bind-addr", "0.0.0.0:8080",
+      "--auth", "password",
+      "--disable-telemetry",
+      "/opt"
+    ]
